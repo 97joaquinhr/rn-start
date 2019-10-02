@@ -1,19 +1,23 @@
 import React, {useState} from 'react';
-import { Text, StyleSheet, View,Button } from 'react-native';
+import { Text, StyleSheet, View,Button,FlatList} from 'react-native';
 const ColorScreen = () => {
-    const [counter,setCounter] = useState(0);
+    const [colors,setColors] = useState([]);
     return (
         <View>
             <Button
                 title='Add a color'
                 onPress = {() => {
-                    //Don't do this!
-                    //counter++;
-                    setCounter(counter+1);
+                    setColors([...colors,randomRGB()]);
                 }}
             />
-            <View style = {{ height: 100, width:100, backgroundColor: randomRGB()}}/>
-            <Text>Current Count: {counter}</Text>
+            
+            <FlatList
+                keyExtractor={item=>item}
+                data = {colors}
+                renderItem={({item})=>{
+                    return <View style = {{ height: 100, width:100, backgroundColor: item}}/>
+                }}
+            />
         </View>
     );
   };
