@@ -3,18 +3,18 @@ import {View,Text,StyleSheet} from  'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 
 const TextScreen= () =>{
-    const [name,setname] = useState('');
+    const [password,setPassword] = useState('');
     return (
         <View>
-            <Text>Enter name:</Text>
+            <Text>Enter password:</Text>
             <TextInput 
                 style={styles.input}
                 autoCapitalize = "none"
                 autoCorrect = {false}
-                value = {name}
-                onChangeText = {newValue=> setname(newValue)}
+                value = {password}
+                onChangeText = {newValue=> setPassword(newValue)}
             />
-            <Text>My name is  {name}</Text>
+            {password.length<4 ? <Text>Password must be at least 4 characters</Text>: null}
         </View>
     );
 };
