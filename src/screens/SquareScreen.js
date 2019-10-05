@@ -16,9 +16,9 @@ const reducer = (state, action)=> {
                 ?  state
                 : { ...state, green: state.green + action.payload};
         case 'change_blue':
-            return state.red+action.payload>255|| state.red+action.payload<0
+            return state.blue+action.payload>255|| state.blue+action.payload<0
                 ?  state
-                : { ...state, red: state.red + action.payload};
+                : { ...state, blue: state.blue + action.payload};
         default:
             return state;
     }
