@@ -5,23 +5,37 @@ const BoxScreen= () =>{
 
     return (
         <View style={styles.viewStyle}>
-            <Text style={styles.textStyle}>Child #1</Text>
-            <Text style={styles.textStyle}>Child #2</Text>
-            <Text style={styles.textStyle}>Child #3</Text>
+            <View style= {styles.viewOneStyle}/>
+            <View style= {styles.viewTwoStyle}/>
+            <View style= {styles.viewThreeStyle}/>
         </View>
     );
 };
 const styles = StyleSheet.create({
+    /*justifyContent, alignItems, flexDirection*/
+    /*flex t */
     viewStyle:{
-        borderWidth: 1,
+        borderWidth: 3,
         borderColor: 'black',
-        flexDirection: 'row',
-        height: 200,
-        alignItems: 'center',
+        height: 100,
+        flexDirection:'row',
+        justifyContent:'space-between',
     },
-    textStyle:{
-        borderWidth: 1,
-        borderColor: 'red',
-    }
+    viewOneStyle:{
+        height: 50,
+        width: 50,
+        backgroundColor: 'red'
+    },
+    viewTwoStyle:{
+        height: 50,
+        width: 50,
+        backgroundColor: 'blue',
+        alignSelf: 'flex-end'
+    },
+    viewThreeStyle:{
+        height: 50,
+        width: 50,
+        backgroundColor: 'green'
+    },
 });
 export default BoxScreen;
